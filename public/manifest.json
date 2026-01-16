@@ -1,0 +1,10 @@
+{
+  "name": "66 Day Challenge",
+  "short_name": "66",
+  "description": "66-day discipline challenge tracker",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#c5c5c5",
+  "theme_color": "#FF4D00",
+  "orientation": "portrait"
+}
