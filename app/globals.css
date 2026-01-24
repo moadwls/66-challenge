@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --bg-primary: #f4f3ee;
+  --bg-secondary: #e8e7e2;
+  --bg-tertiary: #dcdbd6;
+  --bg-menu: #eae9e4;
+  --text-primary: #000000;
+  --text-secondary: #6b7280;
+  --border-color: rgba(255, 77, 0, 0.3);
+}
+
+[data-theme="dark"] {
+  --bg-primary: #000000;
+  --bg-secondary: #0a0a0a;
+  --bg-tertiary: #1a1a1a;
+  --bg-menu: #0d0d0d;
+  --text-primary: #ffffff;
+  --text-secondary: #9ca3af;
+  --border-color: rgba(255, 77, 0, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer components {
+  .header-card {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    @apply rounded-3xl p-4;
+  }
+
+  .notes-card {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    @apply rounded-3xl p-4;
+  }
+
+  .day-badge-small {
+    @apply bg-gradient-to-r from-[#FF6B35] via-[#FF4D00] to-[#E34400] text-black font-black py-1.5 px-3 rounded-lg text-xs;
+  }
+
+  .progress-bar-container {
+    @apply w-full h-12 bg-[#f4f3ee] rounded-full flex items-center px-2 shadow-md;
+  }
+
+  .progress-bar-fill {
+    @apply h-8 rounded-full bg-gradient-to-r from-[#FF6B35] via-[#FF4D00] to-[#E34400] transition-all duration-300;
+  }
+
+  .rule-checkbox {
+    @apply w-10 h-10 border-2 rounded-full flex items-center justify-center flex-shrink-0 transition-all;
+    border-color: var(--text-primary);
+    background-color: var(--bg-primary);
+  }
+
+  .rule-checkbox.completed {
+    @apply bg-gradient-to-r from-[#FF6B35] to-[#FF4D00] border-0;
+  }
+
+  .rule-text {
+    @apply flex-1 text-base font-medium tracking-tight cursor-pointer transition-all;
+  }
+
+  .rule-text.completed {
+    @apply line-through opacity-50;
+  }
+
+  .rule-item {
+    @apply flex items-center gap-3 py-2 cursor-pointer transition-opacity hover:opacity-80 active:opacity-60;
+  }
+
+  .top-menu {
+    background-color: var(--bg-primary);
+    @apply px-4 py-3 w-full;
+  }
+
+  .bottom-nav {
+    background-color: var(--bg-secondary);
+    @apply fixed bottom-0 left-0 right-0 flex items-center justify-around py-3 z-50;
+  }
+
+  .nav-item {
+    @apply flex flex-col items-center gap-1 cursor-pointer transition-opacity hover:opacity-80 active:opacity-60;
+  }
+
+  .theme-bg {
+    background-color: var(--bg-primary);
+  }
+
+  .theme-bg-secondary {
+    background-color: var(--bg-secondary);
+  }
+
+  .theme-bg-tertiary {
+    background-color: var(--bg-tertiary);
+  }
+
+  .theme-text {
+    color: var(--text-primary);
+  }
+
+  .theme-text-secondary {
+    color: var(--text-secondary);
+  }
+
+  .theme-border {
+    border-color: var(--border-color);
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes scaleIn {
+    from { 
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    to { 
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  .animate-scaleIn {
+    animation: scaleIn 0.4s ease-out;
+  }
+}
